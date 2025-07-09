@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1vrgvnprewmt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kykee"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Mob" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kykee")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

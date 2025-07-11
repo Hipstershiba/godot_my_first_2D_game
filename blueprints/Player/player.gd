@@ -52,7 +52,7 @@ func _on_body_entered(body: Node2D) -> void:
 	hide()
 	hit.emit()
 	# Must be deferres as we can't change physics properties
-	$CollisionShape2D.set_deffered("disabled", true)
+	$CollisionShape2D.set_deferred("disabled", true)
 	
 	
 func start(pos):

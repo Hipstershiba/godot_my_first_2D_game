@@ -57,7 +57,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	
 func start(pos):
 	position = pos
-	#$AnimatedSprite2D.flip_v = false
-	#$AnimatedSprite2D.flip_h = false
+	$AnimatedSprite2D.flip_v = false
+	$AnimatedSprite2D.flip_h = false
 	show()
 	$CollisionShape2D.disabled = false

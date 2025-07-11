@@ -45,8 +45,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjrda"]
-radius = 36.0
-height = 100.0
+radius = 31.0
+height = 84.0
 
 [node name="Mob" type="RigidBody2D"]
 collision_mask = 0
@@ -57,7 +57,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_kykee")
-animation = &"fly"
+animation = &"swim"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

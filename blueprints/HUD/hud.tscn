@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqamv2bvbappe"]
+[gd_scene load_steps=3 format=3 uid="uid://cqamv2bvbappe"]
 
+[ext_resource type="Script" uid="uid://b4dditl6jhnj7" path="res://blueprints/HUD/hud.gd" id="1_ji6qt"]
 [ext_resource type="FontFile" uid="uid://dhyf1lojs1j21" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_toxsr"]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ji6qt")
 
 [node name="ScoreLabel" type="Label" parent="."]
 anchors_preset = 10
@@ -35,18 +37,24 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="StartButton" type="Button" parent="."]
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -140.0
+offset_right = 100.0
+offset_bottom = -40.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_toxsr")
 theme_override_font_sizes/font_size = 64
+text = "Start"
 
 [node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

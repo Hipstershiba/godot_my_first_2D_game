@@ -1,22 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1vrgvnprewmt"]
+[gd_scene load_steps=9 format=3 uid="uid://b1vrgvnprewmt"]
+
+[ext_resource type="Texture2D" uid="uid://c4pfs0vdwx3sc" path="res://assets/art/enemyFlyingAlt_1.png" id="1_hkb0e"]
+[ext_resource type="Texture2D" uid="uid://dxqxke4cd5k5w" path="res://assets/art/enemyFlyingAlt_2.png" id="2_wb8t5"]
+[ext_resource type="Texture2D" uid="uid://dq5froqbliyvx" path="res://assets/art/enemySwimming_1.png" id="3_hwijs"]
+[ext_resource type="Texture2D" uid="uid://cele3rr6vayak" path="res://assets/art/enemySwimming_2.png" id="4_yt6ri"]
+[ext_resource type="Texture2D" uid="uid://cpu7ygptgo3ds" path="res://assets/art/enemyWalking_1.png" id="5_88u0c"]
+[ext_resource type="Texture2D" uid="uid://cdyd6ha3gmkos" path="res://assets/art/enemyWalking_2.png" id="6_rlcyj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kykee"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hkb0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wb8t5")
+}],
 "loop": true,
 "name": &"fly",
-"speed": 5.0
+"speed": 3.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hwijs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yt6ri")
+}],
 "loop": true,
 "name": &"swim",
-"speed": 5.0
+"speed": 3.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_88u0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rlcyj")
+}],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 3.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjrda"]
+radius = 36.0
+height = 100.0
 
 [node name="Mob" type="RigidBody2D"]
 collision_mask = 0
@@ -24,9 +53,12 @@ gravity_scale = 0.0
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_kykee")
 animation = &"fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vjrda")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
